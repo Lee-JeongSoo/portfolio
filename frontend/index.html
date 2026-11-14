@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>홍길동 | Backend Developer</title>
+  <meta name="description" content="Spring Boot 백엔드 개발자 홍길동의 포트폴리오">
+  <meta property="og:title" content="홍길동 | Backend Developer">
+  <meta property="og:description" content="Spring Boot 백엔드 개발자 홍길동의 포트폴리오">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234f46e5'/><text x='16' y='22' font-size='16' font-family='sans-serif' font-weight='700' text-anchor='middle' fill='white'>GD</text></svg>">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    // 화면이 깜빡이지 않도록 테마와 애니메이션 준비 상태를 가장 먼저 적용
+    document.documentElement.classList.add('js');
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved) document.documentElement.dataset.theme = saved;
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="주요 메뉴">
+      <a href="#top" class="logo">GD<span>.</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">소개</a></li>
+        <li><a href="#skills">기술</a></li>
+        <li><a href="#projects">프로젝트</a></li>
+        <li><a href="#experience">경험</a></li>
+        <li><a href="#contact">연락</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="다크 모드 전환">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" id="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+    <div class="scroll-progress" id="scroll-progress"></div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="grid-overlay"></div>
+      </div>
+      <div class="container hero-inner">
+        <p class="hero-greeting reveal">안녕하세요 👋</p>
+        <h1 class="hero-title reveal">
+          저는 <span class="accent">홍길동</span>입니다.<br>
+          <span class="typing" id="typing" aria-live="polite"></span><span class="caret" aria-hidden="true"></span>
+        </h1>
+        <p class="hero-desc reveal">
+          안정적인 서버와 읽기 좋은 코드를 만드는 데 관심이 많은 백엔드 개발자입니다.
+          Java와 Spring Boot로 REST API를 설계하고, 문제를 끝까지 파고들어 원인을 찾는 것을 좋아합니다.
+        </p>
+        <div class="hero-cta reveal">
+          <a href="#projects" class="btn btn-primary">프로젝트 보기</a>
+          <a href="#contact" class="btn btn-ghost">연락하기</a>
+        </div>
+        <ul class="hero-social reveal" aria-label="외부 링크">
+          <li><a href="https://github.com/your-id" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://your-blog.tistory.com" target="_blank" rel="noopener">Blog</a></li>
+          <li><a href="mailto:hello@example.com">Email</a></li>
+        </ul>
+      </div>
+      <a href="#about" class="scroll-hint" aria-label="아래로 스크롤"><span></span></a>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section-title reveal"><span class="num">01</span>소개</h2>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p>
+              컴퓨터공학을 전공하며 웹 서비스가 어떻게 동작하는지에 빠져 백엔드 개발을 시작했습니다.
+              기능을 만드는 것에서 그치지 않고, <strong>왜 느린지, 왜 실패하는지</strong>를 측정하고 개선하는 과정을 즐깁니다.
+            </p>
+            <p>
+              테스트 코드로 동작을 확인하고, 다음 사람이 쉽게 읽을 수 있는 코드를 쓰려고 노력합니다.
+              최근에는 대용량 트래픽 처리와 클라우드 인프라에 관심을 가지고 공부하고 있습니다.
+            </p>
+          </div>
+          <ul class="stats reveal" aria-label="요약">
+            <li><strong class="counter" data-target="4">0</strong><span>개인·팀 프로젝트</span></li>
+            <li><strong class="counter" data-target="120" data-suffix="+">0</strong><span>작성한 테스트</span></li>
+            <li><strong class="counter" data-target="300" data-suffix="+">0</strong><span>GitHub 커밋</span></li>
+            <li><strong class="counter" data-target="60" data-suffix="%">0</strong><span>쿼리 응답 개선</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section section-alt" id="skills">
+      <div class="container">
+        <h2 class="section-title reveal"><span class="num">02</span>기술 스택</h2>
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <h3>Backend</h3>
+            <ul class="chips">
+              <li>Java 21</li><li>Spring Boot</li><li>Spring Data JPA</li><li>Spring Security</li><li>JUnit 5</li>
+            </ul>
+          </article>
+          <article class="skill-card reveal">
+            <h3>Frontend</h3>
+            <ul class="chips">
+              <li>JavaScript (ES6+)</li><li>HTML5</li><li>CSS3</li><li>Fetch API</li>
+            </ul>
+          </article>
+          <article class="skill-card reveal">
+            <h3>Database</h3>
+            <ul class="chips">
+              <li>MySQL</li><li>H2</li><li>Redis</li>
+            </ul>
+          </article>
+          <article class="skill-card reveal">
+            <h3>DevOps &amp; Tools</h3>
+            <ul class="chips">
+              <li>Git / GitHub</li><li>GitHub Actions</li><li>Docker</li><li>AWS EC2</li><li>IntelliJ</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <h2 class="section-title reveal"><span class="num">03</span>프로젝트</h2>
+        <p class="section-lead reveal">
+          아래 목록은 이 사이트의 <strong>Spring Boot API</strong>(<code>GET /api/projects</code>)에서 불러옵니다.
+        </p>
+        <div class="filters reveal" id="project-filters" role="group" aria-label="기술별 필터"></div>
+        <div class="projects-grid" id="projects-grid" aria-live="polite">
+          <div class="project-card skeleton"></div>
+          <div class="project-card skeleton"></div>
+          <div class="project-card skeleton"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section section-alt" id="experience">
+      <div class="container">
+        <h2 class="section-title reveal"><span class="num">04</span>경험</h2>
+        <ol class="timeline">
+          <li class="timeline-item reveal">
+            <time>2025.07 — 2025.12</time>
+            <h3>OO 테크 · 백엔드 개발 인턴</h3>
+            <p>사내 주문 관리 API 유지보수와 신규 기능 개발. 느린 조회 쿼리에 인덱스를 추가하고 N+1 문제를 해결해 응답 시간을 단축했습니다.</p>
+          </li>
+          <li class="timeline-item reveal">
+            <time>2025.01 — 2025.06</time>
+            <h3>OO 부트캠프 · 백엔드 과정 수료</h3>
+            <p>Spring Boot 기반 팀 프로젝트 3회 진행. 팀장으로서 API 명세 작성과 코드 리뷰 문화를 도입했습니다.</p>
+          </li>
+          <li class="timeline-item reveal">
+            <time>2020.03 — 2026.02</time>
+            <h3>OO 대학교 · 컴퓨터공학과</h3>
+            <p>자료구조, 운영체제, 데이터베이스, 네트워크 등 CS 기초를 학습했습니다.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container contact-wrap">
+        <h2 class="section-title reveal"><span class="num">05</span>연락하기</h2>
+        <p class="section-lead reveal">
+          함께 일하고 싶거나 궁금한 점이 있다면 편하게 메시지를 남겨주세요.
+          이 폼은 <code>POST /api/contact</code>로 전송되고 서버에서 입력값을 검증합니다.
+        </p>
+        <form class="contact-form reveal" id="contact-form" novalidate>
+          <div class="field">
+            <label for="name">이름</label>
+            <input id="name" name="name" type="text" maxlength="50" autocomplete="name" required>
+            <p class="field-error" data-error-for="name"></p>
+          </div>
+          <div class="field">
+            <label for="email">이메일</label>
+            <input id="email" name="email" type="email" maxlength="100" autocomplete="email" required>
+            <p class="field-error" data-error-for="email"></p>
+          </div>
+          <div class="field field-full">
+            <label for="message">메시지</label>
+            <textarea id="message" name="message" rows="5" maxlength="2000" required></textarea>
+            <p class="field-error" data-error-for="message"></p>
+          </div>
+          <!-- 스팸 봇 방지용 숨김 필드 (사람은 보지 못함) -->
+          <div class="hp" aria-hidden="true">
+            <label for="website">Website</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="form-footer field-full">
+            <button type="submit" class="btn btn-primary" id="contact-submit">
+              <span class="btn-label">메시지 보내기</span>
+              <span class="spinner" aria-hidden="true"></span>
+            </button>
+            <p class="form-status" id="form-status" role="status"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> 홍길동. Built with Spring Boot &amp; Vanilla JS.</p>
+      <p class="api-status" id="api-status" data-state="checking">
+        <span class="dot" aria-hidden="true"></span>
+        <span class="api-status-text">API 연결 확인 중…</span>
+        <span class="visits" id="visits"></span>
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

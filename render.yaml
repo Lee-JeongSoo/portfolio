@@ -1,0 +1,13 @@
+# Render Blueprint: 저장소를 Render에 연결하면 이 설정으로 백엔드가 배포됩니다.
+services:
+  - type: web
+    name: portfolio-api
+    runtime: docker
+    plan: free
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: APP_CORS_ALLOWED_ORIGINS
+        # 본인의 GitHub Pages 주소로 바꿔주세요 (끝에 / 없이)
+        value: https://lee-jeongsoo.github.io
