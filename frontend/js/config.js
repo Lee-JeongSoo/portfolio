@@ -6,7 +6,7 @@
  * 백엔드를 Render 등에 배포한 뒤 아래 주소를 실제 주소로 바꿔주세요.
  */
 (function () {
-  const PRODUCTION_API_URL = 'https://portfolio-api.onrender.com';
+  const PRODUCTION_API_URL = 'https://portfolio-api-vtwx.onrender.com';
 
   const isLocal = ['localhost', '127.0.0.1', ''].includes(location.hostname);
 
