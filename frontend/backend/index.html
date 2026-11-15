@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="ko" data-track="backend">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>이정수 | Backend Developer</title>
+  <meta name="description" content="Java·Spring Boot로 API를 만들고, 인프라 운영 경험으로 배포와 장애 대응까지 고려하는 백엔드 개발자 이정수의 포트폴리오">
+  <meta property="og:title" content="이정수 | Backend Developer">
+  <meta property="og:description" content="운영을 아는 백엔드 개발자 이정수의 포트폴리오">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="../images/profile.webp">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234f46e5'/><text x='16' y='22' font-size='15' font-family='sans-serif' font-weight='700' text-anchor='middle' fill='white'>JS</text></svg>">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <script>
+    // 화면이 깜빡이지 않도록 테마와 애니메이션 준비 상태를 가장 먼저 적용
+    document.documentElement.classList.add('js');
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved) document.documentElement.dataset.theme = saved;
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="주요 메뉴">
+      <a href="#top" class="logo">Portfolio<span>.</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">소개</a></li>
+        <li><a href="#skills">기술</a></li>
+        <li><a href="#projects">프로젝트</a></li>
+        <li><a href="#experience">경력</a></li>
+        <li><a href="#troubleshooting">문제 해결</a></li>
+        <li><a href="#education">학력</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="다크 모드 전환">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" id="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+    <div class="scroll-progress" id="scroll-progress"></div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="grid-overlay"></div>
+      </div>
+      <div class="container hero-inner">
+        <p class="hero-greeting reveal">안녕하세요 👋</p>
+        <h1 class="hero-title reveal">
+          저는 <span class="accent">이정수</span>입니다.<br>
+          <span class="typing" id="typing" data-words="Backend Developer|Java · Spring Boot|운영을 아는 백엔드 개발자" aria-live="polite"></span><span class="caret" aria-hidden="true"></span>
+        </h1>
+        <p class="hero-desc reveal">
+          Java와 Spring Boot로 REST API를 만들고,
+          Linux 서버·가상화 인프라 운영 경험을 바탕으로 <strong>배포와 장애 대응까지 고려하는</strong> 백엔드 개발자입니다.
+        </p>
+        <div class="hero-cta reveal">
+          <a href="#projects" class="btn btn-primary">프로젝트 보기</a>
+          <a href="mailto:jeongsu.lee42@gmail.com" class="btn btn-ghost">메일 보내기</a>
+        </div>
+        <ul class="hero-social reveal" aria-label="외부 링크">
+          <li><a href="https://github.com/Lee-JeongSoo" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="mailto:jeongsu.lee42@gmail.com">Email</a></li>
+        </ul>
+      </div>
+      <a href="#about" class="scroll-hint" aria-label="아래로 스크롤"><span></span></a>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section-title reveal"><span class="num">01</span>소개</h2>
+        <div class="about-grid">
+          <figure class="profile reveal">
+            <img src="../images/profile.webp" alt="이정수 프로필 사진" width="640" height="853" loading="lazy">
+          </figure>
+          <div class="about-body">
+            <blockquote class="callout reveal">
+              <p>운영 현장에서 장애의 원인을 끝까지 좁혀 본 경험으로, <strong>운영하기 쉽고 장애에 강한 백엔드</strong>를 만드는 것을 목표로 합니다.</p>
+            </blockquote>
+            <dl class="info reveal">
+              <div><dt>Name</dt><dd>이정수</dd></div>
+              <div><dt>Email</dt><dd><a href="mailto:jeongsu.lee42@gmail.com">jeongsu.lee42@gmail.com</a></dd></div>
+              <div><dt>GitHub</dt><dd><a href="https://github.com/Lee-JeongSoo" target="_blank" rel="noopener">github.com/Lee-JeongSoo</a></dd></div>
+              <div><dt>Education</dt><dd>동국대학교 컴퓨터공학전공 졸업</dd></div>
+            </dl>
+            <ul class="stats reveal" aria-label="요약">
+              <li><strong class="counter" data-target="5">0</strong><span>개인·팀 프로젝트</span></li>
+              <li><strong class="counter" data-target="2">0</strong><span>정보처리기사 · SQLD</span></li>
+              <li><strong class="counter" data-target="800" data-suffix="+">0</strong><span>운영 경험 VM</span></li>
+              <li><strong class="counter" data-target="900" data-suffix="+">0</strong><span>Ansible 자동화 대상 서버</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section section-alt" id="skills">
+      <div class="container">
+        <h2 class="section-title reveal"><span class="num">02</span>기술 스택</h2>
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <h3>Language</h3>
+            <ul class="chips"><li>Java</li><li>Python</li><li>Kotlin</li><li>C/C++</li><li>JavaScript</li></ul>
+          </article>
+          <article class="skill-card reveal">
+            <h3>Framework</h3>
+            <ul class="chips"><li>Spring Boot</li><li>Spring Data JPA</li><li>FastAPI</li><li>React</li></ul>
+          </article>
+          <article class="skill-card reveal">
+            <h3>Database</h3>
+            <ul class="chips"><li>MySQL</li><li>MariaDB</li><li>H2</li></ul>
+          </article>
+          <article class="skill-card reveal">
+            <h3>Test</h3>
+            <ul class="chips"><li>JUnit 5</li><li>MockMvc</li></ul>
+          </article>
+          <article class="skill-card reveal">
+            <h3>배포 · 인프라</h3>
+            <ul class="chips"><li>Linux</li><li>Docker</li><li>AWS EC2</li><li>GitHub Actions</li></ul>
+          </article>
+          <article class="skill-card reveal">
+            <h3>운영 · 자동화</h3>
+            <ul class="chips"><li>Ansible</li><li>VMware ESXi / vSphere</li><li>Proxmox VE</li></ul>
+          </article>
+          <article class="skill-card reveal">
+            <h3>모니터링 · 보안</h3>
+            <ul class="chips"><li>Zabbix</li><li>Teleport</li><li>Wazuh</li></ul>
+          </article>
+          <article class="skill-card reveal">
+            <h3>협업 도구</h3>
+            <ul class="chips"><li>Git / GitHub</li><li>Jira</li><li>Confluence</li><li>Slack</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <h2 class="section-title reveal"><span class="num">03</span>프로젝트</h2>
+        <p class="section-lead reveal">
+          아래 목록은 이 사이트의 <strong>Spring Boot API</strong>(<code>GET /api/projects?track=backend</code>)에서 불러옵니다.
+          첫 번째 프로젝트가 지금 보고 계신 이 사이트예요. 이미지를 누르면 크게 볼 수 있어요.
+        </p>
+        <div class="filters reveal" id="project-filters" role="group" aria-label="기술별 필터"></div>
+        <div class="projects-grid" id="projects-grid" aria-live="polite">
+          <div class="project-card skeleton"></div>
+          <div class="project-card skeleton"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section section-alt" id="experience">
+      <div class="container">
+        <h2 class="section-title reveal"><span class="num">04</span>경력</h2>
+        <p class="section-lead reveal">서비스가 올라가는 서버를 직접 운영하며 배포 자동화, 모니터링, 장애 대응을 경험했습니다.</p>
+        <article class="job reveal">
+          <header class="job-head">
+            <div>
+              <h3>(주)넥스트펄스 · 삼성전자 SPC 글로벌 인프라 구축 및 운영</h3>
+              <p class="job-role">프리랜서 · 발주처: 아이티센 클로잇</p>
+            </div>
+            <p class="job-period"><time>2026.05</time> ~ 현재 <span class="live-dot" aria-hidden="true"></span></p>
+          </header>
+          <ul class="job-list">
+            <li>사내 자산관리 Agent 신규 버전(Go) 적용 — <strong>소스코드 리뷰</strong>, 배포 SOP·Ansible Playbook 작성</li>
+            <li>Ansible 기반 모니터링·접근통제·보안 에이전트 <strong>배포 자동화</strong> (서버 <strong>900여 대</strong>)</li>
+            <li>Zabbix 기반 <strong>모니터링 구축</strong> 및 Trigger 설계</li>
+            <li>서버 이전 작업 수행 및 <strong>장애 대응</strong></li>
+            <li>CentOS 7 EOS 대응 — 서버 160여 대 Rocky Linux 9.6 전환</li>
+            <li>레거시 환경 기반 약 800대 VM과 약 150대 BM 서버 운영 및 정기 점검</li>
+            <li>VMware ESXi 호스트 50여 대 및 Proxmox VE 호스트 업그레이드</li>
+            <li>iDRAC / IPMI 기반 BIOS 설정 및 H/W 관리</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- TROUBLESHOOTING -->
+    <section class="section" id="troubleshooting">
+      <div class="container">
+        <h2 class="section-title reveal"><span class="num">05</span>문제 해결</h2>
+        <p class="section-lead reveal">가설을 세우고 범위를 좁혀 원인을 찾고, 같은 문제가 다시 생기지 않게 막은 경험입니다.</p>
+        <div class="cases">
+          <article class="case reveal">
+            <header class="case-head">
+              <span class="case-no">Case 01</span>
+              <h3>DB 서버 부팅 중 Emergency 모드 진입</h3>
+              <p class="case-result-badge">재발 조건 제거</p>
+            </header>
+            <dl class="case-body">
+              <div><dt>문제</dt><dd>서버 이전 후 DB 서버가 부팅 중 Emergency 모드로 진입</dd></div>
+              <div><dt>원인 분석</dt><dd>외장 디스크 미감지로 마운트 실패 → 스토리지 케이블 연결 불량</dd></div>
+              <div><dt>조치</dt><dd>Reseat로 서비스 우선 복구</dd></div>
+              <div class="is-result"><dt>근본 해결</dt><dd>디스크 하나의 문제가 부팅 전체를 멈추는 원인 추적 → <code>/etc/fstab</code>에 <code>nofail</code> 옵션 부재 확인, 협의 후 설정 보완해 <strong>재발 조건 제거</strong></dd></div>
+            </dl>
+          </article>
+          <article class="case reveal">
+            <header class="case-head">
+              <span class="case-no">Case 02</span>
+              <h3>해외 서버실 SAN 스토리지 연결 장애</h3>
+              <p class="case-result-badge">약 6시간 만에 복구</p>
+            </header>
+            <dl class="case-body">
+              <div><dt>문제</dt><dd>서버 이전 후 재기동 과정에서 일부 서버가 SAN 스토리지에 연결되지 않음</dd></div>
+              <div><dt>중요성·제약</dt><dd>스토리지가 붙지 않으면 상위 서비스 전체 기동 불가. 서버실이 해외에 있어 장비를 직접 확인할 수 없음</dd></div>
+              <div><dt>판단</dt><dd>원인을 설정 문제 / 물리 문제로 나눠 가설 수립 → 경로별 테스트 케이스로 핑 테스트 반복 → 실패에 규칙성이 없다는 점을 근거로 물리 계층 의심</dd></div>
+              <div class="is-result"><dt>결과</dt><dd>근거를 현지에 공유해 확인 범위를 케이블로 좁힘 → 포설 문제 특정, <strong>약 6시간 만에 복구</strong></dd></div>
+            </dl>
+          </article>
+          <article class="case reveal">
+            <header class="case-head">
+              <span class="case-no">Case 03</span>
+              <h3>vMotion이 어려운 호스트의 업그레이드</h3>
+              <p class="case-result-badge">업그레이드 완료</p>
+            </header>
+            <dl class="case-body">
+              <div><dt>문제</dt><dd>운영 서버가 올라간 ESXi 호스트 업그레이드 필요</dd></div>
+              <div><dt>제약</dt><dd>로컬 디스크를 사용하는 호스트 8대는 vMotion으로 VM 이전이 어려움</dd></div>
+              <div><dt>판단</dt><dd>무리한 이전 대신 서비스 담당자와 협의해 정해진 시간에 VM Shutdown 후 업그레이드</dd></div>
+              <div class="is-result"><dt>결과</dt><dd>대상 VM·중단 시간·작업 순서를 작업계획서로 정리해 일정 조율, <strong>업그레이드 완료</strong></dd></div>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section section-alt" id="education">
+      <div class="container">
+        <h2 class="section-title reveal"><span class="num">06</span>학력 · 자격증</h2>
+        <ol class="timeline">
+          <li class="timeline-item reveal">
+            <time>2026.09</time>
+            <h3>정보처리기사</h3>
+            <p>자격증 취득</p>
+          </li>
+          <li class="timeline-item reveal">
+            <time>2026.03</time>
+            <h3>SQL 개발자 (SQLD)</h3>
+            <p>자격증 취득</p>
+          </li>
+          <li class="timeline-item reveal">
+            <time>2018.03 — 2025.08</time>
+            <h3>동국대학교 · 컴퓨터공학전공</h3>
+            <p>졸업 · 학점 3.56 / 4.5</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>
+        © <span id="year"></span> 이정수 ·
+        GitHub Pages + Spring Boot(Render, Docker) + GitHub Actions로 운영 ·
+        <a class="text-link" href="https://github.com/Lee-JeongSoo/portfolio" target="_blank" rel="noopener">소스코드</a> ·
+        <a class="text-link" href="../">Infra 버전</a>
+      </p>
+      <p class="api-status" id="api-status" data-state="checking">
+        <span class="dot" aria-hidden="true"></span>
+        <span class="api-status-text">API 연결 확인 중…</span>
+        <span class="visits" id="visits"></span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- 프로젝트 이미지 크게 보기 -->
+  <dialog class="lightbox" id="lightbox" aria-label="프로젝트 이미지">
+    <div class="lightbox-head">
+      <p class="lightbox-title" id="lightbox-title"></p>
+      <button class="icon-btn" type="button" id="lightbox-close" aria-label="닫기">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="lightbox-body" id="lightbox-body"></div>
+  </dialog>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

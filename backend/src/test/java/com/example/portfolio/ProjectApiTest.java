@@ -19,15 +19,29 @@ class ProjectApiTest {
     MockMvc mvc;
 
     @Test
-    void listsSeededProjectsInJsonOrder() throws Exception {
+    void listsAllSeededProjectsInJsonOrder() throws Exception {
         mvc.perform(get("/api/projects"))
                 .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(5)))
+                .andExpect(jsonPath("$[0].title", is("Portfolio")))
+                .andExpect(jsonPath("$[1].title", is("척척약사")))
+                .andExpect(jsonPath("$[1].highlights", hasSize(4)))
+                .andExpect(jsonPath("$[1].images[0].src", is("images/projects/pill-ui.webp")))
+                .andExpect(jsonPath("$[1].images[1].caption", is("시스템 구성도")))
+                .andExpect(jsonPath("$[4].title", is("펀칭")));
+    }
+
+    @Test
+    void filtersByTrack() throws Exception {
+        mvc.perform(get("/api/projects").param("track", "infra"))
+                .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(4)))
-                .andExpect(jsonPath("$[0].title", is("척척약사")))
-                .andExpect(jsonPath("$[0].highlights", hasSize(4)))
-                .andExpect(jsonPath("$[0].images[0].src", is("images/projects/pill-ui.webp")))
-                .andExpect(jsonPath("$[0].images[1].caption", is("시스템 구성도")))
-                .andExpect(jsonPath("$[3].title", is("펀칭")));
+                .andExpect(jsonPath("$[*].title", not(hasItem("Portfolio"))));
+
+        mvc.perform(get("/api/projects").param("track", "BACKEND"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(5)))
+                .andExpect(jsonPath("$[0].tracks", contains("backend")));
     }
 
     @Test
@@ -39,8 +53,16 @@ class ProjectApiTest {
     }
 
     @Test
+    void combinesTrackAndTechFilters() throws Exception {
+        mvc.perform(get("/api/projects").param("track", "infra").param("tech", "Spring Boot"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(1)))
+                .andExpect(jsonPath("$[0].title", is("척척약사")));
+    }
+
+    @Test
     void returnsProjectById() throws Exception {
-        mvc.perform(get("/api/projects/1"))
+        mvc.perform(get("/api/projects/2"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.subtitle", is("사진 촬영 기반 알약 식별 서비스")));
     }

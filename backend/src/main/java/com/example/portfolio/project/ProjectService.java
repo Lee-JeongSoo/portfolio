@@ -16,8 +16,9 @@ public class ProjectService {
         this.repository = repository;
     }
 
-    public List<ProjectResponse> findAll(String tech) {
+    public List<ProjectResponse> findAll(String tech, String track) {
         return repository.findAllByOrderBySortOrderAsc().stream()
+                .filter(p -> p.isVisibleIn(track))
                 .filter(p -> tech == null || tech.isBlank()
                         || p.getTechStack().stream().anyMatch(t -> t.equalsIgnoreCase(tech)))
                 .map(ProjectResponse::from)

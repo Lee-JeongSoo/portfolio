@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.BatchSize;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Project {
@@ -45,6 +47,13 @@ public class Project {
     @OrderColumn(name = "position")
     private List<ProjectImage> images = new ArrayList<>();
 
+    /** 이 프로젝트를 보여줄 포트폴리오 버전 (예: infra, backend). 비어 있으면 모든 버전에 보인다. */
+    @ElementCollection
+    @BatchSize(size = 50)
+    @CollectionTable(name = "project_track", joinColumns = @JoinColumn(name = "project_id"))
+    @Column(name = "track")
+    private Set<String> tracks = new LinkedHashSet<>();
+
     private String githubUrl;
     private String demoUrl;
     private int sortOrder;
@@ -54,7 +63,8 @@ public class Project {
 
     public Project(String title, String subtitle, String period, String teamSize, String role,
                    String summary, List<String> highlights, List<String> techStack,
-                   List<ProjectImage> images, String githubUrl, String demoUrl, int sortOrder) {
+                   List<ProjectImage> images, Set<String> tracks, String githubUrl, String demoUrl,
+                   int sortOrder) {
         this.title = title;
         this.subtitle = subtitle;
         this.period = period;
@@ -64,6 +74,7 @@ public class Project {
         this.highlights = new ArrayList<>(highlights);
         this.techStack = new ArrayList<>(techStack);
         this.images = new ArrayList<>(images);
+        this.tracks = new LinkedHashSet<>(tracks);
         this.githubUrl = githubUrl;
         this.demoUrl = demoUrl;
         this.sortOrder = sortOrder;
@@ -79,6 +90,13 @@ public class Project {
     public List<String> getHighlights() { return highlights; }
     public List<String> getTechStack() { return techStack; }
     public List<ProjectImage> getImages() { return images; }
+    public Set<String> getTracks() { return tracks; }
+
+    /** track 이 비어 있거나, 이 프로젝트에 track 이 없으면(모든 버전 공통) true */
+    public boolean isVisibleIn(String track) {
+        return track == null || track.isBlank() || tracks.isEmpty()
+                || tracks.stream().anyMatch(t -> t.equalsIgnoreCase(track));
+    }
     public String getGithubUrl() { return githubUrl; }
     public String getDemoUrl() { return demoUrl; }
     public int getSortOrder() { return sortOrder; }

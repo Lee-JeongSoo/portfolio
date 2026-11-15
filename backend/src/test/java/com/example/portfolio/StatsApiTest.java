@@ -33,6 +33,6 @@ class StatsApiTest {
         mvc.perform(post("/api/stats/visit"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.visits", is((int) visitsBefore + 1)))
-                .andExpect(jsonPath("$.projects", is(4)));
+                .andExpect(jsonPath("$.projects", is(5)));
     }
 }

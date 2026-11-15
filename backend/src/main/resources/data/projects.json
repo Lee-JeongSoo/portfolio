@@ -1,5 +1,45 @@
 [
   {
+    "title": "Portfolio",
+    "subtitle": "Spring Boot REST API 기반 포트폴리오 사이트 (지금 보고 계신 사이트)",
+    "period": "2026.11",
+    "teamSize": "1명 (개인)",
+    "role": "설계 / 백엔드 / 프론트엔드 / 배포",
+    "summary": "정적 프론트엔드(GitHub Pages)와 Spring Boot REST API(Render)를 분리해 구성한 포트폴리오 사이트",
+    "highlights": [
+      "Spring Boot 3.5 · Java 21로 프로젝트·연락·방문 통계 REST API 설계, 기능별 패키지와 Controller–Service–Repository 계층 분리",
+      "JPA 컬렉션을 LAZY + @BatchSize로 묶어 조회해 N+1 쿼리 완화",
+      "Bean Validation과 전역 예외 처리로 입력 검증·에러 응답 형식 통일, CORS로 허용 출처 제한",
+      "MockMvc 통합 테스트와 함께, 프론트·백엔드 데이터가 어긋나면 실패하는 동기화 테스트 작성",
+      "Docker 멀티 스테이지 빌드로 Render에 배포, GitHub Actions로 테스트와 Pages 배포 자동화",
+      "무료 서버의 콜드 스타트 동안 예비 데이터로 먼저 화면을 그려 API 상태와 관계없이 페이지가 동작하도록 설계"
+    ],
+    "techStack": [
+      "Java",
+      "Spring Boot",
+      "JPA",
+      "H2",
+      "JavaScript",
+      "Docker",
+      "GitHub Actions"
+    ],
+    "images": [
+      {
+        "src": "images/projects/portfolio-architecture.webp",
+        "caption": "배포 구조"
+      },
+      {
+        "src": "images/projects/portfolio-site.webp",
+        "caption": "백엔드 버전 첫 화면"
+      }
+    ],
+    "tracks": [
+      "backend"
+    ],
+    "githubUrl": "https://github.com/Lee-JeongSoo/portfolio",
+    "demoUrl": null
+  },
+  {
     "title": "척척약사",
     "subtitle": "사진 촬영 기반 알약 식별 서비스",
     "period": "2023.03 ~ 2023.12",
@@ -12,11 +52,31 @@
       "6개 모델 비교 평가 후 ResNet152 선정·파인튜닝",
       "촬영 환경에 따라 달라지는 이미지를 위한 리사이징·정규화 전처리 파이프라인 구성"
     ],
-    "techStack": ["Python", "Kotlin", "Spring Boot", "AWS EC2", "Google Cloud", "MySQL"],
+    "techStack": [
+      "Python",
+      "Kotlin",
+      "Spring Boot",
+      "AWS EC2",
+      "Google Cloud",
+      "MySQL"
+    ],
     "images": [
-      { "src": "images/projects/pill-ui.webp", "caption": "주요 화면" },
-      { "src": "images/projects/pill-architecture.webp", "caption": "시스템 구성도" },
-      { "src": "images/projects/pill-process.webp", "caption": "이미지 인식 기반 경구 약제 검색 프로세스" }
+      {
+        "src": "images/projects/pill-ui.webp",
+        "caption": "주요 화면"
+      },
+      {
+        "src": "images/projects/pill-architecture.webp",
+        "caption": "시스템 구성도"
+      },
+      {
+        "src": "images/projects/pill-process.webp",
+        "caption": "이미지 인식 기반 경구 약제 검색 프로세스"
+      }
+    ],
+    "tracks": [
+      "infra",
+      "backend"
     ],
     "githubUrl": null,
     "demoUrl": null
@@ -33,9 +93,21 @@
       "LLM 모델 분석·성능 테스트, 파인튜닝용 데이터셋 생성 참여",
       "응답 지연·출력 오류를 로그 분석과 디버깅으로 해결"
     ],
-    "techStack": ["Python", "FastAPI", "Llama3", "LM Studio"],
+    "techStack": [
+      "Python",
+      "FastAPI",
+      "Llama3",
+      "LM Studio"
+    ],
     "images": [
-      { "src": "images/projects/sangsseuri-ui.webp", "caption": "주요 화면" }
+      {
+        "src": "images/projects/sangsseuri-ui.webp",
+        "caption": "주요 화면"
+      }
+    ],
+    "tracks": [
+      "infra",
+      "backend"
     ],
     "githubUrl": null,
     "demoUrl": null
@@ -52,9 +124,20 @@
       "UI/UX 설계·구현 및 서버 구현",
       "실제 센서로 모형을 제작해 2023 겨울 ICIP & 캡스톤디자인 결과발표회에서 시연"
     ],
-    "techStack": ["Kotlin", "Python", "SmartThings API"],
+    "techStack": [
+      "Kotlin",
+      "Python",
+      "SmartThings API"
+    ],
     "images": [
-      { "src": "images/projects/nebakja-ui.webp", "caption": "주요 화면" }
+      {
+        "src": "images/projects/nebakja-ui.webp",
+        "caption": "주요 화면"
+      }
+    ],
+    "tracks": [
+      "infra",
+      "backend"
     ],
     "githubUrl": null,
     "demoUrl": null
@@ -71,11 +154,30 @@
       "코드 스멜을 찾아 하드코딩된 부분 재구현",
       "Firebase에서 AWS·MariaDB로 전환해 인프라 고정비 절감"
     ],
-    "techStack": ["Kotlin", "Python", "Firebase", "AWS", "MariaDB"],
+    "techStack": [
+      "Kotlin",
+      "Python",
+      "Firebase",
+      "AWS",
+      "MariaDB"
+    ],
     "images": [
-      { "src": "images/projects/punching-ui.webp", "caption": "주요 화면" },
-      { "src": "images/projects/punching-flow.webp", "caption": "서비스 흐름도" },
-      { "src": "images/projects/punching-algorithm.webp", "caption": "추천 알고리즘" }
+      {
+        "src": "images/projects/punching-ui.webp",
+        "caption": "주요 화면"
+      },
+      {
+        "src": "images/projects/punching-flow.webp",
+        "caption": "서비스 흐름도"
+      },
+      {
+        "src": "images/projects/punching-algorithm.webp",
+        "caption": "추천 알고리즘"
+      }
+    ],
+    "tracks": [
+      "infra",
+      "backend"
     ],
     "githubUrl": null,
     "demoUrl": null

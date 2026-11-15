@@ -1,6 +1,14 @@
 # 이정수 | Infra & System Engineer Portfolio
 
-사이트: https://lee-jeongsoo.github.io/portfolio/
+지원 직무에 맞춰 두 가지 버전이 있습니다.
+
+| 버전 | 주소 | 페이지 파일 |
+|---|---|---|
+| Infra & System Engineer | https://lee-jeongsoo.github.io/portfolio/ | `frontend/index.html` |
+| Backend Developer | https://lee-jeongsoo.github.io/portfolio/backend/ | `frontend/backend/index.html` |
+
+두 페이지는 디자인(`css/`)과 동작(`js/`), 이미지, 프로젝트 데이터를 같이 씁니다.
+각 프로젝트의 `tracks` 값(`["infra", "backend"]`)으로 어느 버전에 보일지 정합니다.
 
 Spring Boot REST API와 Vanilla JS 프론트엔드로 만든 포트폴리오 사이트입니다.
 
@@ -44,7 +52,7 @@ portfolio/
 
 | Method | Path | 설명 |
 |---|---|---|
-| GET | `/api/projects` | 프로젝트 목록 (`?tech=Spring Boot` 로 필터링) |
+| GET | `/api/projects` | 프로젝트 목록 (`?track=backend`, `?tech=Spring Boot` 로 필터링) |
 | GET | `/api/projects/{id}` | 프로젝트 상세 |
 | POST | `/api/contact` | 연락 메시지 전송 (`name`, `email`, `message`) |
 | GET | `/api/stats` | 방문 수, 프로젝트 수, 메시지 수 |
@@ -97,9 +105,9 @@ cd backend && ./mvnw test
 
 | 바꿀 내용 | 파일 |
 |---|---|
-| 소개, 기술 스택, 경력, 문제 해결 사례, 학력·자격증, 연락처 | `frontend/index.html` |
+| 소개, 기술 스택, 경력, 문제 해결 사례, 학력·자격증 | `frontend/index.html` (인프라), `frontend/backend/index.html` (백엔드) |
 | 상단 숫자 요약 (800+ VM 등) | `frontend/index.html` 의 `data-target` 값 |
-| 히어로 타이핑 문구 | `frontend/js/config.js` 의 `typingWords` |
+| 히어로 타이핑 문구 | 각 페이지의 `<span id="typing" data-words="A|B|C">` |
 | 프로젝트 목록 | `backend/src/main/resources/data/projects.json` **와** `frontend/data/projects.json` (같은 내용으로 두 곳 모두) |
 | 프로젝트 이미지 | `frontend/images/projects/` 에 파일을 넣고 `projects.json` 의 `images` 에 경로 추가 |
 | 프로필 사진 | `frontend/images/profile.webp` |

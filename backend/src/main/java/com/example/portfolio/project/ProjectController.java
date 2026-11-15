@@ -14,10 +14,14 @@ public class ProjectController {
         this.projectService = projectService;
     }
 
-    /** 전체 프로젝트 목록. ?tech=Spring 처럼 기술 이름으로 필터링할 수 있다. */
+    /**
+     * 프로젝트 목록.
+     * ?track=backend 처럼 포트폴리오 버전으로, ?tech=Spring Boot 처럼 기술 이름으로 걸러낼 수 있다.
+     */
     @GetMapping
-    public List<ProjectResponse> list(@RequestParam(required = false) String tech) {
-        return projectService.findAll(tech);
+    public List<ProjectResponse> list(@RequestParam(required = false) String tech,
+                                      @RequestParam(required = false) String track) {
+        return projectService.findAll(tech, track);
     }
 
     @GetMapping("/{id}")

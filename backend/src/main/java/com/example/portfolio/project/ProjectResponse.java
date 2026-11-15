@@ -14,6 +14,7 @@ public record ProjectResponse(
         List<String> highlights,
         List<String> techStack,
         List<Image> images,
+        List<String> tracks,
         String githubUrl,
         String demoUrl
 ) {
@@ -27,6 +28,7 @@ public record ProjectResponse(
                 List.copyOf(p.getHighlights()),
                 List.copyOf(p.getTechStack()),
                 p.getImages().stream().map(i -> new Image(i.getSrc(), i.getCaption())).toList(),
+                List.copyOf(p.getTracks()),
                 p.getGithubUrl(), p.getDemoUrl());
     }
 }

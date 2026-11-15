@@ -126,7 +126,7 @@
      ========================================================= */
   async function initTyping() {
     const el = $('#typing');
-    const words = config.typingWords;
+    const words = el.dataset.words ? el.dataset.words.split('|') : config.typingWords;
     if (prefersReducedMotion) {
       el.textContent = words[0];
       return;
@@ -215,11 +215,11 @@
   let projects = [];
   let activeFilter = null;
 
-  /** http(s) 주소만 허용. allowRelative 이면 images/a.webp 같은 상대 경로도 현재 페이지 기준으로 허용 */
+  /** http(s) 주소만 허용. allowRelative 이면 images/a.webp 같은 상대 경로도 사이트 최상위 기준으로 허용 */
   function safeUrl(url, { allowRelative = false } = {}) {
     if (!url) return null;
     try {
-      const u = allowRelative ? new URL(url, location.href) : new URL(url);
+      const u = allowRelative ? new URL(url, config.siteRoot) : new URL(url);
       return u.protocol === 'https:' || u.protocol === 'http:' ? u.href : null;
     } catch (e) {
       return null;
@@ -320,14 +320,20 @@
       : [el('p', { class: 'empty', text: '해당 기술을 사용한 프로젝트가 없습니다.' })]));
   }
 
+  /** 이 페이지 버전(track)에 해당하는 프로젝트만. tracks 가 없는 프로젝트는 모든 버전에 보인다. */
+  function forThisPage(list) {
+    if (!config.track) return list;
+    return list.filter((p) => !p.tracks || !p.tracks.length || p.tracks.includes(config.track));
+  }
+
   function showProjects(data) {
-    projects = data;
+    projects = forThisPage(data);
     renderFilters();
     renderProjects();
   }
 
   async function loadFallbackProjects() {
-    const res = await fetch(config.fallbackProjectsUrl);
+    const res = await fetch(new URL(config.fallbackProjectsUrl, config.siteRoot));
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     return res.json();
   }
@@ -346,7 +352,7 @@
   }
 
   async function initProjects() {
-    const fromApi = api('/api/projects');
+    const fromApi = api('/api/projects' + (config.track ? `?track=${encodeURIComponent(config.track)}` : ''));
     // 너무 오래 기다리지 않도록: 일정 시간 안에 응답이 없으면 예비 데이터로 먼저 보여준다.
     const first = await Promise.race([
       fromApi.catch(() => null),
@@ -368,7 +374,7 @@
     try {
       const data = await fromApi;
       // 서버가 늦게 깨어났고 내용이 다를 때만 다시 그린다 (불필요한 화면 깜빡임 방지)
-      if (!fallback || !sameContent(data, fallback)) showProjects(data);
+      if (!fallback || !sameContent(forThisPage(data), forThisPage(fallback))) showProjects(data);
     } catch (e) {
       if (!fallback) {
         grid.replaceChildren(el('p', { class: 'empty', text: '프로젝트를 불러오지 못했습니다. 잠시 후 새로고침해 주세요.' }));
