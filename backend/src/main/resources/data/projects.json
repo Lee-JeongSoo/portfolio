@@ -1,0 +1,83 @@
+[
+  {
+    "title": "척척약사",
+    "subtitle": "사진 촬영 기반 알약 식별 서비스",
+    "period": "2023.03 ~ 2023.12",
+    "teamSize": "4명",
+    "role": "기획 / 프론트엔드 / 백엔드",
+    "summary": "알약 사진을 AI로 식별하고 약 정보와 DUR(약물 상호작용)을 제공하는 안드로이드 앱",
+    "highlights": [
+      "전반적인 기획 주도, 프론트엔드 개발, AWS EC2 서버 구축",
+      "시스템 구조: Android → EC2 서버 → Google Cloud AI 모델 / MySQL DB",
+      "6개 모델 비교 평가 후 ResNet152 선정·파인튜닝",
+      "촬영 환경에 따라 달라지는 이미지를 위한 리사이징·정규화 전처리 파이프라인 구성"
+    ],
+    "techStack": ["Python", "Kotlin", "Spring Boot", "AWS EC2", "Google Cloud", "MySQL"],
+    "images": [
+      { "src": "images/projects/pill-ui.webp", "caption": "주요 화면" },
+      { "src": "images/projects/pill-architecture.webp", "caption": "시스템 구성도" },
+      { "src": "images/projects/pill-process.webp", "caption": "이미지 인식 기반 경구 약제 검색 프로세스" }
+    ],
+    "githubUrl": null,
+    "demoUrl": null
+  },
+  {
+    "title": "상쓰리",
+    "subtitle": "AI 음성 기반 역할놀이 시스템",
+    "period": "2025.03 ~ 2025.08 (캡스톤디자인)",
+    "teamSize": "5명 → 밸류업 단계 4명",
+    "role": "기획 / 프론트엔드 / 백엔드",
+    "summary": "사용자의 음성을 Voice cloning해 아이와 역할놀이를 진행하고, 대화를 분석해 리포트를 제공하는 서비스",
+    "highlights": [
+      "UI/UX 디자인 및 웹 페이지 구현 전담",
+      "LLM 모델 분석·성능 테스트, 파인튜닝용 데이터셋 생성 참여",
+      "응답 지연·출력 오류를 로그 분석과 디버깅으로 해결"
+    ],
+    "techStack": ["Python", "FastAPI", "Llama3", "LM Studio"],
+    "images": [
+      { "src": "images/projects/sangsseuri-ui.webp", "caption": "주요 화면" }
+    ],
+    "githubUrl": null,
+    "demoUrl": null
+  },
+  {
+    "title": "네박자",
+    "subtitle": "IoT 기반 노인 이상 상황 감지 서비스",
+    "period": "2023.09 ~ 2023.12",
+    "teamSize": "5명",
+    "role": "팀장 / 기획 / 프론트엔드 / 백엔드",
+    "summary": "IoT 센서와 SmartThings로 생활 패턴을 분석해 이상 상황을 감지하고 알림을 보내는 서비스",
+    "highlights": [
+      "팀장으로 문서·발표 및 팀 소통 주도",
+      "UI/UX 설계·구현 및 서버 구현",
+      "실제 센서로 모형을 제작해 2023 겨울 ICIP & 캡스톤디자인 결과발표회에서 시연"
+    ],
+    "techStack": ["Kotlin", "Python", "SmartThings API"],
+    "images": [
+      { "src": "images/projects/nebakja-ui.webp", "caption": "주요 화면" }
+    ],
+    "githubUrl": null,
+    "demoUrl": null
+  },
+  {
+    "title": "펀칭",
+    "subtitle": "취미 메이트 매칭 서비스",
+    "period": "2022.09 ~ 2022.12",
+    "teamSize": "4명",
+    "role": "기획 / 디자인 / 프론트엔드",
+    "summary": "방탈출 등 취미 메이트를 조건 기반으로 추천·매칭하는 안드로이드 앱",
+    "highlights": [
+      "기획·진행 관리 주도, 통일되지 않은 UI/UX 개선",
+      "코드 스멜을 찾아 하드코딩된 부분 재구현",
+      "Firebase에서 AWS·MariaDB로 전환해 인프라 고정비 절감"
+    ],
+    "techStack": ["Kotlin", "Python", "Firebase", "AWS", "MariaDB"],
+    "images": [
+      { "src": "images/projects/punching-ui.webp", "caption": "주요 화면" },
+      { "src": "images/projects/punching-flow.webp", "caption": "서비스 흐름도" },
+      { "src": "images/projects/punching-algorithm.webp", "caption": "추천 알고리즘" }
+    ],
+    "githubUrl": null,
+    "demoUrl": null
+  }
+]

@@ -215,9 +215,11 @@
   let projects = [];
   let activeFilter = null;
 
-  function safeUrl(url) {
+  /** http(s) 주소만 허용. allowRelative 이면 images/a.webp 같은 상대 경로도 현재 페이지 기준으로 허용 */
+  function safeUrl(url, { allowRelative = false } = {}) {
+    if (!url) return null;
     try {
-      const u = new URL(url);
+      const u = allowRelative ? new URL(url, location.href) : new URL(url);
       return u.protocol === 'https:' || u.protocol === 'http:' ? u.href : null;
     } catch (e) {
       return null;
@@ -236,6 +238,27 @@
   }
 
   function projectCard(p, index) {
+    const images = (p.images || [])
+      .map((img) => ({ src: safeUrl(img.src, { allowRelative: true }), caption: img.caption || '' }))
+      .filter((img) => img.src);
+
+    let thumb = null;
+    if (images.length) {
+      thumb = el('button', {
+        type: 'button',
+        class: 'project-thumb',
+        'aria-label': `${p.title} 이미지 ${images.length}장 크게 보기`,
+      }, [
+        el('img', { src: images[0].src, alt: `${p.title} ${images[0].caption}`.trim(), loading: 'lazy' }),
+        images.length > 1 ? el('span', { class: 'thumb-count', text: `사진 ${images.length}장` }) : null,
+      ]);
+      thumb.addEventListener('click', () => openLightbox(p.title, images));
+    }
+
+    const meta = [['기간', p.period], ['인원', p.teamSize], ['역할', p.role]]
+      .filter(([, v]) => v)
+      .map(([k, v]) => el('span', {}, [el('b', { text: k }), document.createTextNode(v)]));
+
     const links = [];
     const github = safeUrl(p.githubUrl);
     const demo = safeUrl(p.demoUrl);
@@ -243,13 +266,16 @@
     if (demo) links.push(linkWithArrow(demo, 'Live Demo'));
 
     const card = el('article', { class: 'project-card' }, [
-      el('div', { class: 'project-head' }, [
+      thumb,
+      el('div', { class: 'project-body' }, [
         el('h3', { text: p.title }),
-        p.featured ? el('span', { class: 'badge', text: '대표' }) : null,
+        p.subtitle ? el('p', { class: 'project-subtitle', text: p.subtitle }) : null,
+        meta.length ? el('p', { class: 'project-meta' }, meta) : null,
+        p.summary ? el('p', { class: 'project-summary', text: p.summary }) : null,
+        el('ul', { class: 'project-highlights' }, (p.highlights || []).map((h) => el('li', { text: h }))),
+        el('ul', { class: 'tags', 'aria-label': '사용 기술' }, (p.techStack || []).map((t) => el('li', { text: t }))),
+        links.length ? el('div', { class: 'project-links' }, links) : null,
       ]),
-      el('p', { text: p.description }),
-      el('ul', { class: 'tags', 'aria-label': '사용 기술' }, (p.techStack || []).map((t) => el('li', { text: t }))),
-      links.length ? el('div', { class: 'project-links' }, links) : null,
     ]);
     card.style.animationDelay = `${index * 0.07}s`;
     return card;
@@ -300,25 +326,78 @@
     renderProjects();
   }
 
+  async function loadFallbackProjects() {
+    const res = await fetch(config.fallbackProjectsUrl);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return res.json();
+  }
+
+  /** id와 키 순서 차이는 무시하고 내용이 같은지 비교 */
+  function sameContent(a, b) {
+    const norm = (v) => {
+      if (Array.isArray(v)) return v.map(norm);
+      if (v && typeof v === 'object') {
+        return Object.keys(v).filter((k) => k !== 'id').sort()
+          .reduce((o, k) => { o[k] = norm(v[k]); return o; }, {});
+      }
+      return v;
+    };
+    return JSON.stringify(norm(a)) === JSON.stringify(norm(b));
+  }
+
   async function initProjects() {
     const fromApi = api('/api/projects');
-    // 너무 오래 기다리지 않도록: 일정 시간 안에 응답이 없으면 내장 데이터로 먼저 보여준다.
+    // 너무 오래 기다리지 않도록: 일정 시간 안에 응답이 없으면 예비 데이터로 먼저 보여준다.
     const first = await Promise.race([
-      fromApi.then((data) => data, () => null),
+      fromApi.catch(() => null),
       sleep(config.initialWaitMs).then(() => null),
     ]);
     if (first) {
       showProjects(first);
       return;
     }
-    showProjects(window.FALLBACK_PROJECTS);
+
+    let fallback = null;
+    try {
+      fallback = await loadFallbackProjects();
+      showProjects(fallback);
+    } catch (e) {
+      /* 예비 데이터도 없으면 API 응답을 기다린다 */
+    }
+
     try {
       const data = await fromApi;
       // 서버가 늦게 깨어났고 내용이 다를 때만 다시 그린다 (불필요한 화면 깜빡임 방지)
-      if (JSON.stringify(data) !== JSON.stringify(window.FALLBACK_PROJECTS)) showProjects(data);
+      if (!fallback || !sameContent(data, fallback)) showProjects(data);
     } catch (e) {
-      /* 내장 데이터 그대로 사용 */
+      if (!fallback) {
+        grid.replaceChildren(el('p', { class: 'empty', text: '프로젝트를 불러오지 못했습니다. 잠시 후 새로고침해 주세요.' }));
+      }
     }
+  }
+
+  /* =========================================================
+     Lightbox (프로젝트 이미지 크게 보기)
+     ========================================================= */
+  const lightbox = $('#lightbox');
+
+  function openLightbox(title, images) {
+    $('#lightbox-title').textContent = title;
+    const body = $('#lightbox-body');
+    body.replaceChildren(...images.map((img) => el('figure', {}, [
+      el('img', { src: img.src, alt: `${title} ${img.caption}`.trim() }),
+      img.caption ? el('figcaption', { text: img.caption }) : null,
+    ])));
+    lightbox.showModal();
+    body.scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function initLightbox() {
+    $('#lightbox-close').addEventListener('click', () => lightbox.close());
+    // 바깥 어두운 영역을 누르면 닫기
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.close(); });
+    lightbox.addEventListener('close', () => { document.body.style.overflow = ''; });
   }
 
   /* =========================================================
@@ -334,7 +413,7 @@
       setApiStatus('online', 'Spring Boot API 연결됨');
       $('#visits').textContent = `방문 ${Number(stats.visits).toLocaleString('ko-KR')}회`;
     } catch (e) {
-      setApiStatus('offline', '오프라인 모드 (내장 데이터)');
+      setApiStatus('offline', '오프라인 모드 (예비 데이터)');
     } finally {
       clearTimeout(slowTimer);
     }
@@ -357,6 +436,7 @@
 
   function initContact() {
     const form = $('#contact-form');
+    if (!form) return; // 연락 폼을 페이지에서 뺀 경우
     const submit = $('#contact-submit');
     const status = $('#form-status');
 
@@ -436,6 +516,7 @@
   initHeader();
   initReveal();
   initTyping();
+  initLightbox();
   initProjects();
   initStats();
   initContact();

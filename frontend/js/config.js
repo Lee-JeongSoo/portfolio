@@ -16,6 +16,8 @@
     initialWaitMs: 2500,
     // 무료 서버가 잠에서 깨어나는 데 걸릴 수 있는 최대 시간(ms)
     coldStartTimeoutMs: 60000,
-    typingWords: ['Backend Developer', 'Spring Boot 개발자', '문제를 끝까지 파고드는 개발자'],
+    // API에 연결할 수 없을 때 사용할 프로젝트 데이터 (backend/src/main/resources/data/projects.json 과 같은 내용)
+    fallbackProjectsUrl: 'data/projects.json',
+    typingWords: ['Infra & System Engineer', 'Linux · 가상화 인프라 운영', '반복 작업을 코드로 바꾸는 엔지니어'],
   };
 })();
