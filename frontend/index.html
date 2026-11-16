@@ -6,7 +6,7 @@
   <title>이정수 | Infra &amp; System Engineer</title>
   <meta name="description" content="Linux 서버와 가상화 인프라를 운영하는 Infra & System Engineer 이정수의 포트폴리오">
   <meta property="og:title" content="이정수 | Infra & System Engineer">
-  <meta property="og:description" content="장애의 원인을 끝까지 좁히고 반복 작업을 코드로 바꾸는 엔지니어">
+  <meta property="og:description" content="Infra & System Engineer 이정수 포트폴리오">
   <meta property="og:type" content="website">
   <meta property="og:image" content="images/profile.webp">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234f46e5'/><text x='16' y='22' font-size='15' font-family='sans-serif' font-weight='700' text-anchor='middle' fill='white'>JS</text></svg>">
@@ -58,15 +58,11 @@
         <div class="grid-overlay"></div>
       </div>
       <div class="container hero-inner">
-        <p class="hero-greeting reveal">안녕하세요 👋</p>
         <h1 class="hero-title reveal">
-          저는 <span class="accent">이정수</span>입니다.<br>
-          <span class="typing" id="typing" aria-live="polite"></span><span class="caret" aria-hidden="true"></span>
+          <span class="accent">이정수</span><br>
+          <span class="typing" id="typing" data-words="Infra &amp; System Engineer|Linux · 가상화 인프라 운영" aria-live="polite"></span><span class="caret" aria-hidden="true"></span>
         </h1>
-        <p class="hero-desc reveal">
-          Linux 서버와 가상화 인프라를 운영하며,
-          <strong>장애의 원인을 끝까지 좁히고 반복 작업을 코드로 바꾸는</strong> 엔지니어입니다.
-        </p>
+        <p class="hero-desc reveal">Linux 서버와 가상화 인프라를 운영하고 있습니다.</p>
         <div class="hero-cta reveal">
           <a href="#experience" class="btn btn-primary">경력 보기</a>
           <a href="mailto:jeongsu.lee42@gmail.com" class="btn btn-ghost">메일 보내기</a>
@@ -162,11 +158,11 @@
             <p class="job-period"><time>2026.05</time> ~ 현재 <span class="live-dot" aria-hidden="true"></span></p>
           </header>
           <ul class="job-list">
-            <li>레거시 환경 기반 약 <strong>800대 VM</strong>과 약 <strong>150대 BM 서버</strong> 운영 및 정기 점검</li>
-            <li>CentOS 7 EOS 대응 — 서버 <strong>160여 대 Rocky Linux 9.6 전환</strong></li>
-            <li>VMware ESXi 호스트 <strong>50여 대</strong> 및 Proxmox VE 호스트 업그레이드</li>
+            <li>레거시 환경 기반 약 800대 VM과 약 150대 BM 서버 운영 및 정기 점검</li>
+            <li>CentOS 7 EOS 대응 — 서버 160여 대 Rocky Linux 9.6 전환</li>
+            <li>VMware ESXi 호스트 50여 대 및 Proxmox VE 호스트 업그레이드</li>
             <li>Zabbix 기반 모니터링 구축 및 Trigger 설계</li>
-            <li>Ansible 기반 모니터링·접근통제·보안 에이전트 배포 자동화 (서버 <strong>900여 대</strong>)</li>
+            <li>Ansible 기반 모니터링·접근통제·보안 에이전트 배포 자동화 (서버 900여 대)</li>
             <li>사내 자산관리 Agent 신규 버전(Go) 적용 — 소스코드 리뷰, 배포 SOP·Ansible Playbook 작성</li>
             <li>서버 이전 작업 수행 및 장애 대응</li>
             <li>iDRAC / IPMI 기반 BIOS 설정 및 H/W 관리</li>
@@ -179,13 +175,12 @@
     <section class="section section-alt" id="troubleshooting">
       <div class="container">
         <h2 class="section-title reveal"><span class="num">04</span>문제 해결</h2>
-        <p class="section-lead reveal">운영 중 마주친 장애와 제약을 어떻게 판단하고 해결했는지 정리했습니다.</p>
+        <p class="section-lead reveal">운영 중 겪은 장애와 대응 과정입니다.</p>
         <div class="cases">
           <article class="case reveal">
             <header class="case-head">
               <span class="case-no">Case 01</span>
               <h3>해외 서버실 SAN 스토리지 연결 장애</h3>
-              <p class="case-result-badge">약 6시간 만에 복구</p>
             </header>
             <dl class="case-body">
               <div><dt>문제</dt><dd>서버 이전 후 재기동 과정에서 일부 서버가 SAN 스토리지에 연결되지 않음</dd></div>
@@ -198,7 +193,6 @@
             <header class="case-head">
               <span class="case-no">Case 02</span>
               <h3>DB 서버 부팅 중 Emergency 모드 진입</h3>
-              <p class="case-result-badge">재발 조건 제거</p>
             </header>
             <dl class="case-body">
               <div><dt>문제</dt><dd>서버 이전 후 DB 서버가 부팅 중 Emergency 모드로 진입</dd></div>
@@ -211,7 +205,6 @@
             <header class="case-head">
               <span class="case-no">Case 03</span>
               <h3>vMotion이 어려운 호스트의 업그레이드</h3>
-              <p class="case-result-badge">업그레이드 완료</p>
             </header>
             <dl class="case-body">
               <div><dt>문제</dt><dd>운영 서버가 올라간 ESXi 호스트 업그레이드 필요</dd></div>
@@ -229,8 +222,7 @@
       <div class="container">
         <h2 class="section-title reveal"><span class="num">05</span>프로젝트 <small>학부</small></h2>
         <p class="section-lead reveal">
-          아래 목록은 이 사이트의 <strong>Spring Boot API</strong>(<code>GET /api/projects</code>)에서 불러옵니다.
-          이미지를 누르면 크게 볼 수 있어요.
+          프로젝트 목록은 이 사이트의 API(<code>GET /api/projects</code>)에서 불러옵니다.
         </p>
         <div class="filters reveal" id="project-filters" role="group" aria-label="기술별 필터"></div>
         <div class="projects-grid" id="projects-grid" aria-live="polite">
@@ -270,14 +262,12 @@
     <div class="container footer-inner">
       <p>
         © <span id="year"></span> 이정수 ·
-        GitHub Pages + Spring Boot(Render, Docker) + GitHub Actions로 운영 ·
         <a class="text-link" href="https://github.com/Lee-JeongSoo/portfolio" target="_blank" rel="noopener">소스코드</a> ·
         <a class="text-link" href="backend/">Backend 버전</a>
       </p>
       <p class="api-status" id="api-status" data-state="checking">
         <span class="dot" aria-hidden="true"></span>
         <span class="api-status-text">API 연결 확인 중…</span>
-        <span class="visits" id="visits"></span>
       </p>
     </div>
   </footer>

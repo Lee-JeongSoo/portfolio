@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>이정수 | Backend Developer</title>
-  <meta name="description" content="Java·Spring Boot로 API를 만들고, 인프라 운영 경험으로 배포와 장애 대응까지 고려하는 백엔드 개발자 이정수의 포트폴리오">
+  <meta name="description" content="Backend Developer 이정수 포트폴리오">
   <meta property="og:title" content="이정수 | Backend Developer">
-  <meta property="og:description" content="운영을 아는 백엔드 개발자 이정수의 포트폴리오">
+  <meta property="og:description" content="Backend Developer 이정수 포트폴리오">
   <meta property="og:type" content="website">
   <meta property="og:image" content="../images/profile.webp">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234f46e5'/><text x='16' y='22' font-size='15' font-family='sans-serif' font-weight='700' text-anchor='middle' fill='white'>JS</text></svg>">
@@ -58,15 +58,11 @@
         <div class="grid-overlay"></div>
       </div>
       <div class="container hero-inner">
-        <p class="hero-greeting reveal">안녕하세요 👋</p>
         <h1 class="hero-title reveal">
-          저는 <span class="accent">이정수</span>입니다.<br>
-          <span class="typing" id="typing" data-words="Backend Developer|Java · Spring Boot|운영을 아는 백엔드 개발자" aria-live="polite"></span><span class="caret" aria-hidden="true"></span>
+          <span class="accent">이정수</span><br>
+          <span class="typing" id="typing" data-words="Backend Developer|Java · Spring Boot" aria-live="polite"></span><span class="caret" aria-hidden="true"></span>
         </h1>
-        <p class="hero-desc reveal">
-          Java와 Spring Boot로 REST API를 만들고,
-          Linux 서버·가상화 인프라 운영 경험을 바탕으로 <strong>배포와 장애 대응까지 고려하는</strong> 백엔드 개발자입니다.
-        </p>
+        <p class="hero-desc reveal">Java와 Spring Boot로 백엔드를 개발합니다. 현재 Linux 서버와 가상화 인프라를 운영하고 있습니다.</p>
         <div class="hero-cta reveal">
           <a href="#projects" class="btn btn-primary">프로젝트 보기</a>
           <a href="mailto:jeongsu.lee42@gmail.com" class="btn btn-ghost">메일 보내기</a>
@@ -89,7 +85,7 @@
           </figure>
           <div class="about-body">
             <blockquote class="callout reveal">
-              <p>운영 현장에서 장애의 원인을 끝까지 좁혀 본 경험으로, <strong>운영하기 쉽고 장애에 강한 백엔드</strong>를 만드는 것을 목표로 합니다.</p>
+              <p>Java·Spring Boot 기반 백엔드 개발과 Linux 서버·가상화 인프라 운영 경험이 있습니다.</p>
             </blockquote>
             <dl class="info reveal">
               <div><dt>Name</dt><dd>이정수</dd></div>
@@ -97,12 +93,6 @@
               <div><dt>GitHub</dt><dd><a href="https://github.com/Lee-JeongSoo" target="_blank" rel="noopener">github.com/Lee-JeongSoo</a></dd></div>
               <div><dt>Education</dt><dd>동국대학교 컴퓨터공학전공 졸업</dd></div>
             </dl>
-            <ul class="stats reveal" aria-label="요약">
-              <li><strong class="counter" data-target="5">0</strong><span>개인·팀 프로젝트</span></li>
-              <li><strong class="counter" data-target="2">0</strong><span>정보처리기사 · SQLD</span></li>
-              <li><strong class="counter" data-target="800" data-suffix="+">0</strong><span>운영 경험 VM</span></li>
-              <li><strong class="counter" data-target="900" data-suffix="+">0</strong><span>Ansible 자동화 대상 서버</span></li>
-            </ul>
           </div>
         </div>
       </div>
@@ -154,8 +144,7 @@
       <div class="container">
         <h2 class="section-title reveal"><span class="num">03</span>프로젝트</h2>
         <p class="section-lead reveal">
-          아래 목록은 이 사이트의 <strong>Spring Boot API</strong>(<code>GET /api/projects?track=backend</code>)에서 불러옵니다.
-          첫 번째 프로젝트가 지금 보고 계신 이 사이트예요. 이미지를 누르면 크게 볼 수 있어요.
+          프로젝트 목록은 이 사이트의 API(<code>GET /api/projects?track=backend</code>)에서 불러옵니다.
         </p>
         <div class="filters reveal" id="project-filters" role="group" aria-label="기술별 필터"></div>
         <div class="projects-grid" id="projects-grid" aria-live="polite">
@@ -169,7 +158,6 @@
     <section class="section section-alt" id="experience">
       <div class="container">
         <h2 class="section-title reveal"><span class="num">04</span>경력</h2>
-        <p class="section-lead reveal">서비스가 올라가는 서버를 직접 운영하며 배포 자동화, 모니터링, 장애 대응을 경험했습니다.</p>
         <article class="job reveal">
           <header class="job-head">
             <div>
@@ -179,10 +167,10 @@
             <p class="job-period"><time>2026.05</time> ~ 현재 <span class="live-dot" aria-hidden="true"></span></p>
           </header>
           <ul class="job-list">
-            <li>사내 자산관리 Agent 신규 버전(Go) 적용 — <strong>소스코드 리뷰</strong>, 배포 SOP·Ansible Playbook 작성</li>
-            <li>Ansible 기반 모니터링·접근통제·보안 에이전트 <strong>배포 자동화</strong> (서버 <strong>900여 대</strong>)</li>
-            <li>Zabbix 기반 <strong>모니터링 구축</strong> 및 Trigger 설계</li>
-            <li>서버 이전 작업 수행 및 <strong>장애 대응</strong></li>
+            <li>사내 자산관리 Agent 신규 버전(Go) 적용 — 소스코드 리뷰, 배포 SOP·Ansible Playbook 작성</li>
+            <li>Ansible 기반 모니터링·접근통제·보안 에이전트 배포 자동화 (서버 900여 대)</li>
+            <li>Zabbix 기반 모니터링 구축 및 Trigger 설계</li>
+            <li>서버 이전 작업 수행 및 장애 대응</li>
             <li>CentOS 7 EOS 대응 — 서버 160여 대 Rocky Linux 9.6 전환</li>
             <li>레거시 환경 기반 약 800대 VM과 약 150대 BM 서버 운영 및 정기 점검</li>
             <li>VMware ESXi 호스트 50여 대 및 Proxmox VE 호스트 업그레이드</li>
@@ -196,13 +184,12 @@
     <section class="section" id="troubleshooting">
       <div class="container">
         <h2 class="section-title reveal"><span class="num">05</span>문제 해결</h2>
-        <p class="section-lead reveal">가설을 세우고 범위를 좁혀 원인을 찾고, 같은 문제가 다시 생기지 않게 막은 경험입니다.</p>
+        <p class="section-lead reveal">운영 중 겪은 장애와 대응 과정입니다.</p>
         <div class="cases">
           <article class="case reveal">
             <header class="case-head">
               <span class="case-no">Case 01</span>
               <h3>DB 서버 부팅 중 Emergency 모드 진입</h3>
-              <p class="case-result-badge">재발 조건 제거</p>
             </header>
             <dl class="case-body">
               <div><dt>문제</dt><dd>서버 이전 후 DB 서버가 부팅 중 Emergency 모드로 진입</dd></div>
@@ -215,7 +202,6 @@
             <header class="case-head">
               <span class="case-no">Case 02</span>
               <h3>해외 서버실 SAN 스토리지 연결 장애</h3>
-              <p class="case-result-badge">약 6시간 만에 복구</p>
             </header>
             <dl class="case-body">
               <div><dt>문제</dt><dd>서버 이전 후 재기동 과정에서 일부 서버가 SAN 스토리지에 연결되지 않음</dd></div>
@@ -228,7 +214,6 @@
             <header class="case-head">
               <span class="case-no">Case 03</span>
               <h3>vMotion이 어려운 호스트의 업그레이드</h3>
-              <p class="case-result-badge">업그레이드 완료</p>
             </header>
             <dl class="case-body">
               <div><dt>문제</dt><dd>운영 서버가 올라간 ESXi 호스트 업그레이드 필요</dd></div>
@@ -270,14 +255,12 @@
     <div class="container footer-inner">
       <p>
         © <span id="year"></span> 이정수 ·
-        GitHub Pages + Spring Boot(Render, Docker) + GitHub Actions로 운영 ·
         <a class="text-link" href="https://github.com/Lee-JeongSoo/portfolio" target="_blank" rel="noopener">소스코드</a> ·
         <a class="text-link" href="../">Infra 버전</a>
       </p>
       <p class="api-status" id="api-status" data-state="checking">
         <span class="dot" aria-hidden="true"></span>
         <span class="api-status-text">API 연결 확인 중…</span>
-        <span class="visits" id="visits"></span>
       </p>
     </div>
   </footer>

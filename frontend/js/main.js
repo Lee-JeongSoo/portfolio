@@ -410,16 +410,17 @@
      API 연결 확인 + 방문자 수
      ========================================================= */
   async function initStats() {
-    const slowTimer = setTimeout(() => setApiStatus('checking', '서버를 깨우는 중…'), config.initialWaitMs);
+    const slowTimer = setTimeout(() => setApiStatus('checking', 'API 연결 중…'), config.initialWaitMs);
     try {
       // 같은 탭에서 새로고침할 때마다 방문 수가 늘지 않도록 세션당 한 번만 기록
       const counted = storageGet(sessionStorage, 'visit-counted');
       const stats = counted ? await api('/api/stats') : await api('/api/stats/visit', { method: 'POST' });
       storageSet(sessionStorage, 'visit-counted', '1');
-      setApiStatus('online', 'Spring Boot API 연결됨');
-      $('#visits').textContent = `방문 ${Number(stats.visits).toLocaleString('ko-KR')}회`;
+      setApiStatus('online', 'API 연결됨');
+      const visits = $('#visits');
+      if (visits) visits.textContent = `방문 ${Number(stats.visits).toLocaleString('ko-KR')}회`;
     } catch (e) {
-      setApiStatus('offline', '오프라인 모드 (예비 데이터)');
+      setApiStatus('offline', 'API 연결 안 됨 (예비 데이터 표시)');
     } finally {
       clearTimeout(slowTimer);
     }

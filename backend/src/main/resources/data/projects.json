@@ -1,18 +1,19 @@
 [
   {
     "title": "Portfolio",
-    "subtitle": "Spring Boot REST API 기반 포트폴리오 사이트 (지금 보고 계신 사이트)",
+    "subtitle": "포트폴리오 사이트 (이 사이트)",
     "period": "2026.11",
     "teamSize": "1명 (개인)",
     "role": "설계 / 백엔드 / 프론트엔드 / 배포",
-    "summary": "정적 프론트엔드(GitHub Pages)와 Spring Boot REST API(Render)를 분리해 구성한 포트폴리오 사이트",
+    "summary": "GitHub Pages(프론트엔드)와 Render(Spring Boot API)로 나눠 배포한 포트폴리오 사이트",
     "highlights": [
-      "Spring Boot 3.5 · Java 21로 프로젝트·연락·방문 통계 REST API 설계, 기능별 패키지와 Controller–Service–Repository 계층 분리",
-      "JPA 컬렉션을 LAZY + @BatchSize로 묶어 조회해 N+1 쿼리 완화",
-      "Bean Validation과 전역 예외 처리로 입력 검증·에러 응답 형식 통일, CORS로 허용 출처 제한",
-      "MockMvc 통합 테스트와 함께, 프론트·백엔드 데이터가 어긋나면 실패하는 동기화 테스트 작성",
-      "Docker 멀티 스테이지 빌드로 Render에 배포, GitHub Actions로 테스트와 Pages 배포 자동화",
-      "무료 서버의 콜드 스타트 동안 예비 데이터로 먼저 화면을 그려 API 상태와 관계없이 페이지가 동작하도록 설계"
+      "Spring Boot 3.5 · Java 21 기반 REST API (프로젝트 목록, 방문 통계)",
+      "기능별 패키지, Controller–Service–Repository 계층 구조",
+      "JPA 컬렉션 조회에 @BatchSize 적용 (N+1 쿼리 감소)",
+      "Bean Validation, 전역 예외 처리, CORS 설정",
+      "MockMvc 통합 테스트, 프론트·백엔드 데이터 일치 검사 테스트",
+      "Docker 멀티 스테이지 빌드로 Render 배포, GitHub Actions로 테스트·배포 자동화",
+      "API 서버가 응답하지 않을 때 정적 예비 데이터로 화면 표시"
     ],
     "techStack": [
       "Java",

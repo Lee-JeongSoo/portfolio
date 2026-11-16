@@ -27,6 +27,6 @@
     // siteRoot 기준 경로
     fallbackProjectsUrl: 'data/projects.json',
     // 기본 타이핑 문구. 페이지에서 <span id="typing" data-words="A|B|C"> 로 바꿀 수 있다.
-    typingWords: ['Infra & System Engineer', 'Linux · 가상화 인프라 운영', '반복 작업을 코드로 바꾸는 엔지니어'],
+    typingWords: ['Infra & System Engineer', 'Linux · 가상화 인프라 운영'],
   };
 })();
